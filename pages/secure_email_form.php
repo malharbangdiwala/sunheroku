@@ -85,32 +85,9 @@
     <!-- ################################################################################################ -->
     <div class="content"> 
       <!-- ################################################################################################ -->
-      <div id="comments" class="one_half first">
-        <h2>Write To Us</h2>
-        <form method="post" action="#">
-          <div class="one_half first">
-            <label for="name">Name <span>*</span></label>
-            <input type="text" name="name" id="name" value="" size="22" required>
-          </div>
-          <div class="one_half">
-            <label for="email">Mail <span>*</span></label>
-            <input type="email" name="email" id="email" value="" size="22" required>
-          </div>
-          <div class="block clear">
-            <label for="product">Product Number</label>
-            <input type="text" name="product" id="product" value="" size="22">
-          </div>
-          <div class="block clear">
-            <label for="comment">Your Comment<span>*</span></label>
-            <textarea name="comment" id="comment" cols="25" rows="10" required></textarea>
-          </div>
-          <div>
-            <input type="submit" name="submit" value="Submit Form">
-            &nbsp;
-            <input type="reset" name="reset" value="Reset Form">
-          </div>
-        </form>
-        <div id="feedback">
+      <div class="container">
+<!-- Feedback Form Starts Here -->
+<div id="feedback">
 <!-- Heading Of The Form -->
 <div class="head">
 <h3>FeedBack Form</h3>
@@ -127,7 +104,11 @@
 </form>
 <h3><?php include "secure_email_code.php"?></h3>
 </div>
-      </div>
+<!-- Feedback Form Ends Here -->
+</div>
+
+
+
       <div id= "map" class="one_half">
       <h1>Address</h1>
       <p>C-1 Shiv Kutir, Veer Savarkar Marg</p>
