@@ -1,28 +1,44 @@
-
 <?php
-if(isset($_POST["submit"])){
-// Checking For Blank Fields..
-if($_POST["name"]==""||$_POST["email"]==""||$_POST["comment"]==""){
-echo "Fill All Fields..";
-}else{
-// Check if the "Sender's Email" input field is filled out
-$email=$_POST['email'];
-// Sanitize E-mail Address
-$email =filter_var($email, FILTER_SANITIZE_EMAIL);
-// Validate E-mail Address
-$email= filter_var($email, FILTER_VALIDATE_EMAIL);
-if (!$email){
-echo "Invalid Sender's Email";
+
+#Receive user input
+$email_address = $_POST['email_address'];
+$feedback = $_POST['feedback'];
+
+#Filter user input
+function filter_email_header($form_field) {  
+return preg_replace('/[nr|!/<>^$%*&]+/','',$form_field);
 }
-else{
-$message = $_POST['comment'];
-$product=$_POST['product'];
-$subject="Website query: Product no:". $product;
-$headers = 'From:'. $email2 . "rn"; // Sender's Email
-// Send Mail By PHP Mail Function
-mail("malharbangdiwala03@gmail.com", $subject, $message, $headers);
-echo "Your mail has been sent successfuly ! Thank you for your feedback";
-}
-}
+
+$email_address  = filter_email_header($email_address);
+
+#Send email
+$headers = "From: $email_addressn";
+$sent = mail('malharbangdiwala03@gmail.com', 'Feedback Form Submission', $feedback, $headers);
+#Thank user or notify them of a problem
+if ($sent) {
+
+?><html>
+<head>
+<title>Thank You</title>
+</head>
+<body>
+<h1>Thank You</h1>
+<p>Thank you for your feedback.</p>
+</body>
+</html>
+<?php
+
+} else {
+
+?><html>
+<head>
+<title>Something went wrong</title>
+</head>
+<body>
+<h1>Something went wrong</h1>
+<p>We could not send your feedback. Please try again.</p>
+</body>
+</html>
+<?php
 }
 ?>
