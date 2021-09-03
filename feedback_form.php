@@ -25,14 +25,33 @@
                     $returnpath = "-f" . $from; 
                     // Send email 
                     $mail = mail($to, $subject, $message, $headers, $returnpath);  
-                    if(!$mail){
-                        $_SESSION['formess']="sorry!, some technical Issue Please contact us";
-						 echo '<script>location.href="404error.php"</script>';		
-                    }
-                    else
-                    {
-                       echo '<script>location.href="index.php"</script>';
-                    }
+                    if ($mail) {
+
+                        ?><html>
+                        <head>
+                        <title>Thank You</title>
+                        </head>
+                        <body>
+                        <h1>Thank You</h1>
+                        <p>Thank you for your feedback.</p>
+                        </body>
+                        </html>
+                        
+                        <?php
+                        
+                        } else {
+                        ?><html>
+                        <head>
+                        <title>Something went wrong</title>
+                        </head>
+                        <body>
+                        <h1>Something went wrong</h1>
+                        <p>We could not send your feedback. Please try again.</p>
+                        </body>
+                        </html>
+                        <?php
+                        }
+                        ?>
                    
 				}
 				?>
