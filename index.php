@@ -1,3 +1,3 @@
 <?php
-include_once("secure_email_form.php");
+include_once("Yamifood/yamifood/index.html");
 ?>
