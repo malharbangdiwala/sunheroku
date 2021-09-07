@@ -1,3 +1,3 @@
 <?php
-include_once("Yamifood/yamifood/index.html");
+include_once("Yamifood/yamifood/reservation.html");
 ?>
